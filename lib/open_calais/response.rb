@@ -61,7 +61,7 @@ module OpenCalais
             self.entities << item
           end
         when 'relations'
-          item = v.reject{|k,v| k[0] == '_' || k == 'instances'} || {}
+          item = v.dup
           item[:type] = v._type.remove_formatting.titleize
           self.relations << item
         end
